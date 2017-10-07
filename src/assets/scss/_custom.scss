@@ -1,0 +1,200 @@
+// Fade effect mixin
+@mixin faded_black() {
+    background: linear-gradient(to bottom, rgba(0,0,0,.7) 20% , rgba(0,0,0,.3)  );
+}
+@mixin background_image($page) {
+    background-image: url(../img/featured/small/#{$page}.jpg);
+    @include breakpoint(medium) {
+        background-image: url(../img/featured/medium/#{$page}.jpg);
+    }
+    @include breakpoint(large) {
+        background-image: url(../img/featured/large/#{$page}.jpg);
+    }
+}
+
+// Bellefair Font
+$bellefair: 'Bellefair', serif;
+
+.container {
+    @include xy-grid-container();
+}
+.main-content {
+    background-color: $white;
+    padding: rem-calc(5);
+    @include breakpoint(medium) {
+        margin-top: rem-calc(-120);
+        position: relative;
+        padding: rem-calc(50 80);
+    }
+}
+.site-header {
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+    background-attachment: scroll;
+    @include breakpoint(large) {
+        background-attachment: fixed;
+    }
+
+    .header-content {
+        @include padding(2);
+        .top-section {
+            @include xy-grid();
+            @include flex-align(center, top);
+            position: relative;
+            z-index: 1;
+            
+            .logo {
+                @include xy-cell(6);
+                @include flex-align(center, middle);
+                @include breakpoint(medium) {
+                    @include xy-cell(25%);
+                }
+                
+            }
+
+        }
+        .bottom-section {
+            @include margin(1);
+            @include breakpoint(medium) {
+                height: rem-calc(230);
+                @include flex();
+                @include flex-align(center, bottom);
+            }
+            .slogan {
+                color: $white;
+                position: relative;
+                z-index: 1;
+                text-align: center;
+                @include font-bold(900);
+                @include text-transform(uppercase);
+            }
+        }
+    }
+    
+    &:after {
+        @include faded_black();
+        @include position(absolute, 0,0,0,0);
+        content: '';
+        @include box(100%, 100%);
+    }
+}
+
+.menus {
+    @include xy-cell();
+    @include breakpoint(medium) {
+        @include xy-cell(auto);
+    }
+
+    //Social menu
+    .social-menu {
+        @include menu-base();
+        @include flex-align(center, middle);
+        @include breakpoint(medium) {
+            @include flex-align(right, middle);
+        }
+        a {
+            &:before {
+                display: inline-block;
+                font-family: 'Fontawesome';
+                font-size: rem-calc(30);
+                -webkit-font-smoothing: antialiased;
+                content: '\f08e';
+            }
+            &[href*="facebook.com"]::before { content: '\f082'; }
+            &[href*="twitter.com"]::before { content: '\f099'; }
+            &[href*="instagram.com"]::before { content: '\f16d'; }
+            &[href*="youtube.com"]::before { content: '\f16a'; }
+            
+        }
+    .title-bar {
+        background-color: darken($primary-color, 10);
+    }
+    } 
+
+    // Main Navigation for Interior Pages
+    .main-navigation {
+        @include menu-base();
+        @include flex-align(right, middle);
+        @include breakpoint(small only) {
+            background-color: $primary-color;
+        }
+    }
+
+    li {
+        @include breakpoint(small only) {
+            width: 100%;
+            text-align: center;
+        }
+
+        a {
+            @include text-transform(uppercase);
+            @include font-bold(700);
+            font-size: rem-calc(16px);
+
+            &:hover {
+                color: $secondary-color;
+            }
+        }
+    }
+}
+
+
+//Animation .menus
+
+.menu-in {
+    @include mui-zoom(in,.1,1);
+}
+
+.menu-out {
+    @include mui-zoom(out, 1, .1, true, .5, ease);
+}
+
+
+// footer
+
+.site-footer {
+    background-color: $primary-color;
+    .container {
+        background-color: $white;
+        .footer-content {
+            @include padding(2,2,4,2);
+            @include xy-grid();
+            .footer-box {
+                @include xy-cell();
+                @include brekapoint(small only) {
+                    margin-bottom: rem-calc(10);
+                }
+                @include breakpoint(medium) {
+                    @include xy-cell(4);
+                }
+                text-align: center;
+                h3 {
+                    color: $secondary-color;
+                    font-family: $bellefair;
+                    @include text-transform(uppercase);
+                }
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+    p.copyright {
+        margin: 0;
+        color: $white;
+        text-align: center;
+        font-size: rem-calc(18);
+        @include padding(1, null, 1, null);
+        @include font-bold(900);
+    }
+}
+
+
+
+
+
+
+
+
+
