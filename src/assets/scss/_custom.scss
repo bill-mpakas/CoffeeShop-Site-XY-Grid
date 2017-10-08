@@ -38,6 +38,9 @@ $bellefair: 'Bellefair', serif;
     &.about {
         @include background_image(about);
     }
+    &.process {
+        @include background_image(process);
+    }
     @include breakpoint(large) {
         background-attachment: fixed;
     }
@@ -225,6 +228,7 @@ $bellefair: 'Bellefair', serif;
 }
 
 //Internal Pages
+/** About Us **/
 
 main.page-about {
     @include xy-grid();
@@ -260,6 +264,57 @@ main.page-about {
         }
     }
 }
+
+/** Process */
+
+.page-process {
+    .process-container {
+        @include xy-grid();
+        .process__item {
+            @include xy-gutters($gutter-position: bottom);
+            @include xy-cell();
+            @include breakpoint(medium) {
+                @include xy-cell(50%);
+            }
+        }
+        @include breakpoint(medium);
+            @include odd() {
+                .process__image {
+                    order: 2;
+                }
+                .process__content {
+                    order: 1;
+                }
+            }
+    }   .process__content {
+
+            h3 {
+                color: $primary-color;
+                @include margin(1);
+                @include text-transform(uppercase);
+                @include font-bold(900);
+                &:after {                   //adding the line after the h3 element
+                    width: rem-calc(200);
+                    height: rem-calc(2);
+                    background-color: $secondary-color;
+                    content: '';
+                    display: block;
+                    margin-top: rem-calc(10);
+                }
+            }
+
+            p {
+                font-size: rem-calc(18);
+                line-height: rem-calc(38);
+                margin-top: rem-calc(30);
+            }
+
+        }
+}
+
+
+
+
 
 
 
