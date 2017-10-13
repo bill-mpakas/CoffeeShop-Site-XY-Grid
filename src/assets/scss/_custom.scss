@@ -41,6 +41,9 @@ $bellefair: 'Bellefair', serif;
     &.process {
         @include background_image(process);
     }
+    &.menu {
+        @include background_image(menu);
+    }
     @include breakpoint(large) {
         background-attachment: fixed;
     }
@@ -311,6 +314,125 @@ main.page-about {
 
         }
 }
+
+
+// Menu Page 
+
+    .page-menu {
+        padding-bottom: 0;
+        @include xy-grid();
+        .menu-description {
+            @include xy-cell();
+            @include breakpoint(large) {
+                @include xy-cell(5);
+            }   
+        }
+        p {
+            text-align: center;
+            line-height: rem-calc(50);
+        }
+        .menu-image {
+            @include xy-cell();
+            @include breakpoint(large) {
+                @include xy-cell(7);
+            }
+            @include flex-align(center,bottom);
+            @include flex();
+        }
+    }
+
+/** Menu list **/
+
+    .our-menu {
+        background-image: url(../img/menu.jpg);
+        @include padding(3, null, 2, null);
+        position: relative;
+        background-position: center center;
+        background-attachment: scroll;
+        @include breakpoint(large){
+            background-size:cover;
+            background-attachment: fixed; 
+        }
+        h2 {
+            color: $white;
+            @include font-bold(900);
+            @include text-transform(uppercase);
+            text-align: center;
+            font-size: rem-calc(20);
+            margin-bottom: rem-calc(40);
+            span {
+                @include display(table);
+                margin: 0 auto;
+                font-size: rem-calc(30);
+            }
+        }
+        &:after {
+            content: '';
+            @include position(absolute, 0,0,0,0);
+            background-color: rgba(46,23, 15, .86);
+        }
+        .container {
+            position: relative;
+            z-index: 10;
+        }
+        .menu-list {
+            @include xy-grid();
+            color: $white;
+            > div {
+                @include xy-cell();
+                @include breakpoint(medium) {
+                    @include xy-cell(6);
+                }
+                h3 {
+                    @include text-transform(uppercase);
+                    @include font-bold(900);
+                    margin-bottom: rem-calc(40);
+                }
+            }
+        }
+    }
+
+
+    // Product list
+
+.product-list {
+    list-style: none;
+    margin: 0;
+    li {
+        margin-bottom: rem-calc(15);
+        @include flex();
+        @include xy-grid();
+        .product {
+            @include xy-cell(8);
+            p.name {
+                @include text-transform(uppercase);
+                @include font-bold(900);
+                font-size: rem-calc(18);
+            }
+            p.description {
+                color: $secondary-color;
+                font-size: rem-calc(16);
+            }
+            p {
+                margin: 0;
+            }
+        }
+        .price {
+            @include xy-cell(4);
+            p {
+                text-align: right;
+                font-size: rem-calc(30);
+                @include font-bold(900);
+            }
+        }
+        p {
+            margin: 0;
+        }
+    }
+}
+    
+
+
 
 
 
