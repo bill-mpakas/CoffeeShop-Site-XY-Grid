@@ -47,6 +47,9 @@ $bellefair: 'Bellefair', serif;
     &.gallery {
         @include background_image(gallery);
     }
+    &.contact {
+        @include background_image(contact);
+    }
     @include breakpoint(large) {
         background-attachment: fixed;
     }
@@ -509,7 +512,46 @@ main.page-about {
     }
 }
 
+// Contact us
 
+.page-contact {
+    background-image: url(../img/coffee_beans.jpg);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 60%;
+    @include xy-grid();
+    @include breakpoint(medium) {
+        background-size: 40%;
+    }
+    .reservation-form {
+        @include xy-cell();
+        @include breakpoint(medium) {
+            @include xy-cell(6);
+        }
+    }
+}
+
+.field-container {
+    label {
+        color: $black;
+        font-size: rem-calc(20);
+        @include font-bold();
+        @include text-transform(uppercase);
+    }
+    input, select {
+        border: rem-calc(1.5) solid $primary-color;
+        height: rem-calc(50);
+    }
+
+    .send_btn {
+        @include font-bold();
+        @include text-transform(uppercase);
+        font-size: rem-calc(18);
+        width: 100%;
+        height: auto;
+    }
+
+}
 
 
 
