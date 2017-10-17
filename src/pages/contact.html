@@ -8,15 +8,19 @@ slogan: Better Beans, better coffee
     <h2 class="heading-title">reserve your<span>table here</span></h2>
 
     <div class="reservation-form">
-      <form method= "post" id="contact-form">
+      <form method= "post" id="contact-form" data-abide novalidate >
         <div class="field-container">
           <label for="name">
-            Your Name: <input type="text" id="name" placeholder="Full Name" name="name">
+            Your Name: <input type="text" id="name" placeholder="Full Name" name="name" required>
+            <span class="form-error">
+              Error, the name is required!
+            </span>
           </label>
         </div>
         <div class="field-container">
           <label for="phone">
-              Phone or Email: <input type="text" id="phone" placeholder="Phone or Email" name="phone">
+              Email: <input type="text" id="email" placeholder="Email" name="email" required pattern="email">
+              <span class="form-error">The email field is required!</span>
             </label>
         </div>
         <div class="field-container">
@@ -40,7 +44,10 @@ slogan: Better Beans, better coffee
         </div>
         <div class="field-container">
             <label for="when">
-                At: <input type="date" id="when" name="when">
+                When: <input type="text" id="when" name="when" placeholder="DD/MM/YYYY" required pattern="day_month_year">
+                <span class="form-error">
+                  Error, the email field is mandatory or the date format is wrong!
+                </span>
             </label>
         </div>
         <div class="field-container">
