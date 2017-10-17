@@ -32,6 +32,9 @@ $bellefair: 'Bellefair', serif;
     position: relative;
     height: 100vh;
     background-attachment: scroll;
+    @include breakpoint(large) {
+        background-attachment: fixed;
+    }
     &.homepage {
         @include background_image(home);
     }
@@ -126,7 +129,7 @@ $bellefair: 'Bellefair', serif;
             
         }
     .title-bar {
-        background-color: darken($primary-color, 10);
+        background-color: darken($primary-color, 20);
     }
     } 
 
@@ -482,6 +485,9 @@ main.page-about {
             p {
                 text-align: right;
                 font-size: rem-calc(30);
+                @include breakpoint(small only) {
+                    font-size: rem-calc(26);
+                }
                 @include font-bold(900);
             }
         }
@@ -597,6 +603,34 @@ main.page-about {
         height: auto;
     }
 
+}
+
+
+// Testimonials
+
+.testimonials {
+    background-color: $white;
+    padding-top: rem-calc(70);
+    padding-bottom: rem-calc(70);
+    h2  {
+        margin-top: 0;
+    }
+}
+
+.slide-container {
+    @include xy-grid();
+    @include flex-align(center, middle);
+    .orbit {
+        background-color: $cream;
+        @include xy-cell(10);
+        border-left: rem-calc(5) solid $primary-color;
+        li {
+
+            div {
+                @include padding(2,4,2,4);
+            }
+        }
+    }
 }
 
 
